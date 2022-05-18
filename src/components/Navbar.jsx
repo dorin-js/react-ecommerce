@@ -9,7 +9,7 @@ const Container = styled.div`
   height: 60px;
 `
 const Wrapper = styled.div`
-  padding: 10px 20px;
+  padding: 10px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -56,47 +56,58 @@ const Input = styled.input`
   }
 `
 const Logo = styled.h1`
+  cursor: pointer;
   font-weight: bold;
   font-size: 2rem;
   margin: 0;
+  user-select: none;
 `
 const MenuItem = styled.div`
   font-size: 14px;
   cursor: pointer;
   margin-left: 30px;
+  &:hover {
+    color: teal;
+    transition: 0.3s ease;
+  }
 `
 
 const Navbar = () => {
   return (
-    <Container>
-      <Wrapper>
-        <Left>
-          <Language>EN</Language>
-          <InputContainer>
-            <Input />
-            <SearchIcon
-              style={{
-                cursor: 'pointer',
-                color: 'gray',
-                fontSize: '18px',
-              }}
-            />
-          </InputContainer>
-        </Left>
-        <Center>
-          <Logo>LAMA.</Logo>
-        </Center>
-        <Right>
-          <MenuItem>REGISTER</MenuItem>
-          <MenuItem>SIGN IN</MenuItem>
-          <MenuItem>
-            <Badge badgeContent={4} color="primary">
-              <ShoppingCartOutlined />
-            </Badge>
-          </MenuItem>
-        </Right>
-      </Wrapper>
-    </Container>
+    <nav>
+      <Container>
+        <Wrapper>
+          <Left>
+            <Language>EN</Language>
+            <InputContainer>
+              <Input />
+              <SearchIcon
+                style={{
+                  cursor: 'pointer',
+                  color: 'gray',
+                  fontSize: '18px',
+                }}
+              />
+            </InputContainer>
+          </Left>
+          <Center>
+            <Logo>LAMA.</Logo>
+          </Center>
+          <Right>
+            <MenuItem>REGISTER</MenuItem>
+            <MenuItem>SIGN IN</MenuItem>
+            <MenuItem>
+              <Badge badgeContent={4} color="primary">
+                <ShoppingCartOutlined
+                  className="cart hover"
+                  style={{ cursor: 'pointer' }}
+                />
+              </Badge>
+            </MenuItem>
+          </Right>
+        </Wrapper>
+      </Container>
+    </nav>
   )
 }
 

@@ -12,3 +12,11 @@
     transform: rotate(360deg);
   }
 } */
+
+.cart.hover {
+  transition: 0.3s ease;
+}
+.cart.hover:hover {
+  color: teal;
+  transition: 0.3s;
+}
