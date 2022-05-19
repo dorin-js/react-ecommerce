@@ -77,3 +77,38 @@ export const categories2 = [
     title: 'Sofas',
   },
 ]
+
+export const popularProducts = [
+  {
+    id: 1,
+    img: 'https://demo.accesspressthemes.com/zigcy/demo-one/wp-content/uploads/sites/2/2018/11/rt1-450x450.png',
+  },
+  {
+    id: 2,
+    img: 'https://demo.accesspressthemes.com/zigcy/demo-one/wp-content/uploads/sites/2/2018/11/g111-450x450.png',
+  },
+  {
+    id: 3,
+    img: 'https://demo.accesspressthemes.com/zigcy/demo-one/wp-content/uploads/sites/2/2018/11/ci1-450x450.png',
+  },
+  {
+    id: 4,
+    img: 'https://demo.accesspressthemes.com/zigcy/demo-one/wp-content/uploads/sites/2/2018/11/f432-450x450.png',
+  },
+  {
+    id: 5,
+    img: 'https://demo.accesspressthemes.com/zigcy/demo-one/wp-content/uploads/sites/2/2018/11/smt6-450x450.png',
+  },
+  {
+    id: 6,
+    img: 'https://demo.accesspressthemes.com/zigcy/demo-one/wp-content/uploads/sites/2/2018/11/smt2-450x450.png',
+  },
+  {
+    id: 7,
+    img: 'https://demo.accesspressthemes.com/zigcy/demo-one/wp-content/uploads/sites/2/2018/11/rt6-450x450.png',
+  },
+  {
+    id: 8,
+    img: 'https://demo.accesspressthemes.com/zigcy/demo-one/wp-content/uploads/sites/2/2018/11/int1-450x450.png',
+  },
+]

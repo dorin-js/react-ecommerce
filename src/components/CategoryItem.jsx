@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Button } from './Slider'
+// import { Button } from './Slider'
 
 const Container = styled.div`
   position: relative;
@@ -10,12 +10,12 @@ const Container = styled.div`
     grid-column: span 3;
   }
 `
-const Image = styled.img`
+export const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
 `
-const Info = styled.div`
+export const Info = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
@@ -28,10 +28,28 @@ const Info = styled.div`
   font-size: 2.5rem;
   gap: 1.5rem;
   text-transform: uppercase;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.3);
+  /* background: rgba(2, 2, 2, 0.1); */
   letter-spacing: 2px;
+  /* text-shadow: 1px 2px 30px #888; */
+  color: #333;
 `
 const Title = styled.div``
+const Button = styled.button`
+  outline: none;
+  border: 1px solid #999;
+  padding: 15px;
+  background: #f1f1f1;
+  color: #222;
+  font-size: 16px;
+  letter-spacing: 1px;
+  opacity: 0.9;
+  &:hover {
+    cursor: pointer;
+    background: #666;
+    color: #f1f1f1;
+  }
+`
 
 export default function CategoryItem({ item }) {
   return (
