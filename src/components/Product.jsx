@@ -5,6 +5,7 @@ import { ShoppingCartOutlined } from '@mui/icons-material'
 import ZoomInIcon from '@mui/icons-material/ZoomIn'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import { Link } from 'react-router-dom'
+import { mobile, tablet } from '../responsive'
 
 const Container = styled.div`
   position: relative;
@@ -33,6 +34,8 @@ export const Info = styled.div`
     opacity: 1;
     background: rgba(59, 59, 59, 0.15);
   }
+  ${mobile({ opacity: '1' })}
+  ${tablet({ opacity: '1' })}
 `
 const Icon = styled.div`
   border-radius: 50%;

@@ -11,7 +11,7 @@ const Container = styled.div`
   justify-content: center;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 5px;
-  ${mobile({ gridTemplateColumns: '1fr 1fr' })}
+  ${mobile({ gridTemplateColumns: '1fr' })}
   ${tablet({ gridTemplateColumns: '1fr 1fr' })}
 `
 
