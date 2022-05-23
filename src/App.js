@@ -9,6 +9,9 @@ import Announcement from './components/Announcement'
 import Footer from './components/Footer'
 import NotFound from './pages/NotFound'
 import ProductList from './pages/ProductList'
+import Register from './pages/Register'
+import Login from './pages/Login'
+import Cart from './pages/Cart'
 
 const theme = createTheme({
   palette: {
@@ -30,6 +33,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="product/:id" element={<SingleProduct />} />
         <Route path="products" element={<ProductList />} />
+        <Route path="register" element={<Register />} />
+        <Route path="login" element={<Login />} />
+        <Route path="cart" element={<Cart />} />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
