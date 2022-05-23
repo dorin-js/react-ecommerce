@@ -4,9 +4,18 @@ import Badge from '@mui/material/Badge'
 import styled from 'styled-components'
 import searchIco from '../img/icons/search2.svg'
 import SearchIcon from '@mui/icons-material/Search'
+import { Link } from 'react-router-dom'
+
+const Nav = styled.nav`
+  position: sticky;
+  top: -0.5px;
+  z-index: 10;
+`
 
 const Container = styled.div`
   height: 60px;
+  border-bottom: 0.5px solid #eaeaea;
+  background: white;
 `
 const Wrapper = styled.div`
   padding: 10px 30px;
@@ -14,16 +23,16 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
 `
-const Left = styled.div`
+export const Left = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
 `
-const Center = styled.div`
+export const Center = styled.div`
   flex: 1;
   text-align: center;
 `
-const Right = styled.div`
+export const Right = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
@@ -55,7 +64,7 @@ const Input = styled.input`
     outline: none;
   }
 `
-const Logo = styled.h1`
+export const Logo = styled.h1`
   cursor: pointer;
   font-weight: bold;
   font-size: 2rem;
@@ -71,14 +80,30 @@ const MenuItem = styled.div`
     transition: 0.3s ease;
   }
 `
+const Select = styled.select`
+  border: 1px solid lightgray;
+  outline: none;
+  padding: 5px;
+  font-size: 14px;
+  font-family: 'Urbanist', sans-serif;
+`
+const Option = styled.option`
+  background: white;
+  padding: 10px;
+`
 
 const Navbar = () => {
   return (
-    <nav>
+    <Nav>
       <Container>
         <Wrapper>
           <Left>
-            <Language>EN</Language>
+            <Language>
+              <Select defaultValue={'EN'}>
+                <Option value="EN">EN</Option>
+                <Option>RO</Option>
+              </Select>
+            </Language>
             <InputContainer>
               <Input />
               <SearchIcon
@@ -91,9 +116,12 @@ const Navbar = () => {
             </InputContainer>
           </Left>
           <Center>
-            <Logo>LAMA.</Logo>
+            <Link to="/">
+              <Logo>LAMA.</Logo>
+            </Link>
           </Center>
           <Right>
+            <MenuItem>SHOP</MenuItem>
             <MenuItem>REGISTER</MenuItem>
             <MenuItem>SIGN IN</MenuItem>
             <MenuItem>
@@ -107,7 +135,7 @@ const Navbar = () => {
           </Right>
         </Wrapper>
       </Container>
-    </nav>
+    </Nav>
   )
 }
 

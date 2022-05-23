@@ -2,6 +2,13 @@ import './App.css'
 import Home from './pages/Home'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { teal } from '@mui/material/colors'
+import SingleProduct from './pages/SingleProduct'
+import { Routes, Route } from 'react-router-dom'
+import Navbar from './components/Navbar'
+import Announcement from './components/Announcement'
+import Footer from './components/Footer'
+import NotFound from './pages/NotFound'
+import ProductList from './pages/ProductList'
 
 const theme = createTheme({
   palette: {
@@ -17,7 +24,15 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Home />
+      <Announcement />
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="product/:id" element={<SingleProduct />} />
+        <Route path="products" element={<ProductList />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Footer />
     </ThemeProvider>
   )
 }

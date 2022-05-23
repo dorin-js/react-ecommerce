@@ -91,7 +91,7 @@ export const Button = styled.button`
 
 export default function Slider() {
   const [slideIndex, setSlideIndex] = useState(0)
-  useEffect(() => console.log(slideIndex), [slideIndex])
+  // useEffect(() => console.log(slideIndex), [slideIndex])
 
   const swSlide = (dir) => {
     if (dir === 'left') {

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { ShoppingCartOutlined } from '@mui/icons-material'
 import ZoomInIcon from '@mui/icons-material/ZoomIn'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import { Link } from 'react-router-dom'
 
 const Container = styled.div`
   position: relative;
@@ -54,14 +55,16 @@ const Icon = styled.div`
 export default function Product({ product }) {
   return (
     <Container>
-      <Image src={product.img} />
+      <Image src={product.img} loading="lazy" />
       <Info>
         <Icon>
           <ShoppingCartOutlined style={{ fontSize: '28px' }} />
         </Icon>
-        <Icon>
-          <ZoomInIcon style={{ fontSize: '28px' }} />
-        </Icon>
+        <Link to="product" className="r-link">
+          <Icon>
+            <ZoomInIcon style={{ fontSize: '28px' }} />
+          </Icon>
+        </Link>
         <Icon>
           <FavoriteBorderIcon style={{ fontSize: '28px' }} />
         </Icon>

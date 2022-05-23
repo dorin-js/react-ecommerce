@@ -54,6 +54,9 @@ const Button = styled.button`
   flex: 1;
   color: white;
   background: teal;
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 export default function Newsletter() {

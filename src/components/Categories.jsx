@@ -22,7 +22,7 @@ const Container = styled.div`
 export default function Categories() {
   return (
     <>
-      <Container>
+      <Container catLength={categories.length}>
         {categories.map((item) => (
           <CategoryItem item={item} key={item.id} />
         ))}

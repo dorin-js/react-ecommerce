@@ -14,10 +14,12 @@ const Container = styled.div`
 
 export default function PopularProducts() {
   return (
-    <Container>
-      {popularProducts.map((product) => (
-        <Product product={product} key={product.id} />
-      ))}
-    </Container>
+    <div>
+      <Container>
+        {popularProducts.map((product) => (
+          <Product product={product} key={product.id} />
+        ))}
+      </Container>
+    </div>
   )
 }

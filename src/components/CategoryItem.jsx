@@ -7,7 +7,7 @@ const Container = styled.div`
   /* flex: 1; */
   grid-column: span 2;
   &:nth-child(n + 4) {
-    grid-column: span 3;
+    grid-column: span ${(props) => (props.arrLength === 5 || 8 ? 3 : 2)};
   }
 `
 export const Image = styled.img`
@@ -51,9 +51,9 @@ const Button = styled.button`
   }
 `
 
-export default function CategoryItem({ item }) {
+export default function CategoryItem({ item, catLength }) {
   return (
-    <Container>
+    <Container arrLength={catLength}>
       <Image src={item.img} />
       <Info>
         <Title>{item.title}</Title>

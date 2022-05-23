@@ -29,7 +29,8 @@ export const sliderItems = [
   // },
   {
     id: 6,
-    img: 'https://img.freepik.com/free-psd/minimal-living-room-with-classic-sofa-carpet-interior-design-ideas_176382-1528.jpg?w=1800&t=st=1652887563~exp=1652888163~hmac=7c76064fe56f15df73a624cd305aae742201ee4860df73e2767ecf6be9abebba',
+    // img: 'https://img.freepik.com/free-psd/minimal-living-room-with-classic-sofa-carpet-interior-design-ideas_176382-1528.jpg?w=1800&t=st=1652887563~exp=1652888163~hmac=7c76064fe56f15df73a624cd305aae742201ee4860df73e2767ecf6be9abebba',
+    img: 'https://demo.thepunte.com/punte/ecommerce-furniture/wp-content/uploads/sites/10/2017/03/slide-1.jpg',
     title: 'SUMMER COLLECTION',
     desc1: 'GRACE & UNIQUE STYLE',
     desc2: 'MODERN DESIGN FORNITURE',
