@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import CloseIcon from '@mui/icons-material/Close'
+import { mobile, tablet } from '../responsive'
 
 const Container = styled.div`
   height: 30px;
@@ -12,7 +13,14 @@ const Container = styled.div`
   align-items: center;
   font-size: 14px;
   font-weight: 500;
-  /* transition: all 0.4s ease; */
+  ${mobile({
+    padding: '0 5px',
+    fontSize: '12px',
+  })} /* transition: all 0.4s ease; */
+  ${tablet({
+    padding: '0 5px',
+    fontSize: '12px',
+  })}
 `
 
 export default function Announcement() {

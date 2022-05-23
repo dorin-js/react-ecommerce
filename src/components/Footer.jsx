@@ -9,10 +9,13 @@ import {
   Room,
   Twitter,
 } from '@mui/icons-material'
+import { mobile, tablet } from '../responsive'
 
 const Container = styled.div`
   display: flex;
   padding: 10px 150px;
+  ${mobile({ flexDirection: 'column', padding: '10px' })}
+  ${tablet({ flexDirection: 'column', padding: '10px' })}
 `
 const Left = styled.div`
   flex: 1;
@@ -27,6 +30,8 @@ const Right = styled.div`
 const Center = styled.div`
   flex: 1;
   padding: 20px;
+  ${mobile({ display: 'none' })}
+  ${tablet({ display: 'none' })}
 `
 const Title = styled.h3`
   margin-bottom: 30px;

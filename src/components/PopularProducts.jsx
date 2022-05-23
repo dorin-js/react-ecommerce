@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { popularProducts } from '../data'
 import Product from './Product'
+import { mobile, tablet } from '../responsive'
 
 const Container = styled.div`
   display: grid;
@@ -10,6 +11,8 @@ const Container = styled.div`
   justify-content: center;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 5px;
+  ${mobile({ gridTemplateColumns: '1fr 1fr' })}
+  ${tablet({ gridTemplateColumns: '1fr 1fr' })}
 `
 
 export default function PopularProducts() {

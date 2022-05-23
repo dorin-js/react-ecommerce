@@ -1,6 +1,7 @@
 import AddIcon from '@mui/icons-material/Add'
 import RemoveIcon from '@mui/icons-material/Remove'
 import styled from 'styled-components'
+import { mobile, tablet } from '../responsive'
 
 const Container = styled.div``
 
@@ -29,6 +30,8 @@ const TopButton = styled.button`
   background-color: ${(props) =>
     props.type === 'filled' ? 'black' : 'transparent'};
   color: ${(props) => props.type === 'filled' && 'white'};
+  ${mobile({ display: 'none' })}
+  ${tablet({ display: 'none' })}
 `
 
 const TopTexts = styled.div``
@@ -41,6 +44,8 @@ const TopText = styled.span`
 const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
+  ${mobile({ flexDirection: 'column' })}
+  ${tablet({ flexDirection: 'column' })}
 `
 
 const Info = styled.div`
@@ -50,6 +55,8 @@ const Info = styled.div`
 const Product = styled.div`
   display: flex;
   justify-content: space-between;
+  ${mobile({ flexDirection: 'column' })}
+  ${tablet({ flexDirection: 'column' })}
 `
 
 const ProductDetail = styled.div`
@@ -87,12 +94,16 @@ const PriceDetail = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  ${mobile({ flexDirection: 'row' })}
+  ${tablet({ flexDirection: 'row' })}
 `
 
 const ProductAmountContainer = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  ${mobile({ marginBottom: 0, padding: '0 30px' })}
+  ${tablet({ marginBottom: 0, padding: '0 30px' })}
 `
 
 const ProductAmount = styled.div`

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { mobile } from '../responsive'
 import { categories, categories2 } from '../data'
 import CategoryItem from './CategoryItem'
 
@@ -17,6 +18,7 @@ const Container = styled.div`
   justify-content: center;
   grid-template-columns: repeat(6, 1fr);
   grid-gap: 5px;
+  ${mobile({ gridTemplateColumns: '1fr' })}
 `
 
 export default function Categories() {

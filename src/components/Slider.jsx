@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined'
 import ChevronLeftOutlinedIcon from '@mui/icons-material/ChevronLeftOutlined'
 import { sliderItems } from '../data'
+import { mobile, tablet } from '../responsive'
 
 const Container = styled.div`
   width: 100%;
@@ -10,6 +11,7 @@ const Container = styled.div`
   display: flex;
   position: relative;
   overflow: hidden;
+  ${mobile({ display: 'none' })}
 `
 const Arrow = styled.div`
   display: flex;
@@ -29,6 +31,7 @@ const Arrow = styled.div`
   cursor: pointer;
   opacity: 0.2;
   z-index: 3;
+  ${tablet({ margin: '20% 10px' })}
 `
 const Wrapper = styled.div`
   height: 100%;
@@ -64,9 +67,11 @@ const InfoContainer = styled.div`
   transform: translateY(-50%);
   max-width: 50%;
   user-select: none;
+  ${tablet({ top: '15%', padding: '20px 50px' })}
 `
 const Title = styled.h1`
   font-size: 60px;
+  ${tablet({ fontSize: '1.5em' })}
 `
 const Desc = styled.p`
   margin: 50px 0;
@@ -74,6 +79,7 @@ const Desc = styled.p`
   line-height: 35px;
   font-weight: 500;
   letter-spacing: 3px;
+  ${tablet({ margin: '20px 0', fontSize: '0.6em' })}
 `
 export const Button = styled.button`
   outline: none;
@@ -87,6 +93,7 @@ export const Button = styled.button`
     background: #666;
     color: #f1f1f1;
   }
+  ${tablet({ fontSize: '0.6em' })}
 `
 
 export default function Slider() {
@@ -103,33 +110,33 @@ export default function Slider() {
   }
 
   return (
-    <div>
-      <Container>
-        <Wrapper slideIndex={slideIndex}>
-          {sliderItems.map((slider) => (
-            <Slide key={slider.id}>
-              <ImgContainer>
-                <Image src={slider.img} />
-                <InfoContainer>
-                  <Title>{slider.title}</Title>
-                  <Desc>
-                    {slider.desc1}
-                    <br />
-                    {slider.desc2}
-                  </Desc>
-                  <Button>SHOP NOW</Button>
-                </InfoContainer>
-              </ImgContainer>
-            </Slide>
-          ))}
-        </Wrapper>
-        <Arrow direction="left" onClick={() => swSlide('left')}>
-          <ChevronLeftOutlinedIcon />
-        </Arrow>
-        <Arrow direction="right" onClick={() => swSlide('right')}>
-          <ChevronRightOutlinedIcon />
-        </Arrow>
-      </Container>
-    </div>
+    // <div>
+    <Container>
+      <Wrapper slideIndex={slideIndex}>
+        {sliderItems.map((slider) => (
+          <Slide key={slider.id}>
+            <ImgContainer>
+              <Image src={slider.img} />
+              <InfoContainer>
+                <Title>{slider.title}</Title>
+                <Desc>
+                  {slider.desc1}
+                  <br />
+                  {slider.desc2}
+                </Desc>
+                <Button>SHOP NOW</Button>
+              </InfoContainer>
+            </ImgContainer>
+          </Slide>
+        ))}
+      </Wrapper>
+      <Arrow direction="left" onClick={() => swSlide('left')}>
+        <ChevronLeftOutlinedIcon />
+      </Arrow>
+      <Arrow direction="right" onClick={() => swSlide('right')}>
+        <ChevronRightOutlinedIcon />
+      </Arrow>
+    </Container>
+    // </div>
   )
 }

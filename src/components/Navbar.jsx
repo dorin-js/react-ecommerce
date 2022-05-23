@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import searchIco from '../img/icons/search2.svg'
 import SearchIcon from '@mui/icons-material/Search'
 import { Link } from 'react-router-dom'
+import { mobile, tablet } from '../responsive'
 
 const Nav = styled.nav`
   position: sticky;
@@ -22,6 +23,8 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  ${mobile({ padding: '10px 10px' })}
+  ${tablet({ padding: '10px 10px' })}
 `
 export const Left = styled.div`
   flex: 1;
@@ -42,12 +45,15 @@ const Language = styled.span`
   cursor: pointer;
   font-size: 14px;
   margin-right: 30px;
+  ${mobile({ display: 'none' })}
+  ${tablet({ marginRight: '10px' })}
 `
 const InputContainer = styled.div`
   display: flex;
   align-items: center;
   border: 0.5px solid lightgray;
   padding: 5px;
+  ${mobile({ alignItems: 'flex-start' })}
   &:focus-within {
     border: 1px solid #009688;
     outline: none;
@@ -59,6 +65,8 @@ const Input = styled.input`
   /* padding-right: 30px; */
   border: none;
   outline: none;
+  ${mobile({ width: '0px' })}
+  ${tablet({ width: '50px' })}
   &:focus {
     border: none;
     outline: none;
@@ -70,6 +78,7 @@ export const Logo = styled.h1`
   font-size: 2rem;
   margin: 0;
   user-select: none;
+  ${mobile({ fontSize: '1.6rem' })}
 `
 const MenuItem = styled.div`
   font-size: 14px;
@@ -79,6 +88,8 @@ const MenuItem = styled.div`
     color: teal;
     transition: 0.3s ease;
   }
+  ${mobile({ marginLeft: '20px' })}
+  ${tablet({ marginLeft: '20px' })}
 `
 const Select = styled.select`
   border: 1px solid lightgray;
@@ -105,12 +116,13 @@ const Navbar = () => {
               </Select>
             </Language>
             <InputContainer>
-              <Input />
+              <Input placeholder="Search" />
               <SearchIcon
                 style={{
                   cursor: 'pointer',
                   color: 'gray',
                   fontSize: '18px',
+                  flex: 1,
                 }}
               />
             </InputContainer>

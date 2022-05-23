@@ -5,6 +5,7 @@ import '@splidejs/react-splide/css'
 import { Button } from '../components/Slider'
 import AddIcon from '@mui/icons-material/Add'
 import RemoveIcon from '@mui/icons-material/Remove'
+import { mobile, tablet } from '../responsive'
 
 const Container = styled.div`
   display: flex;
@@ -13,6 +14,8 @@ const Container = styled.div`
 const Wrapper = styled.div`
   padding: 20px;
   display: flex;
+  ${mobile({ flexDirection: 'column' })}
+  ${tablet({ flexDirection: 'column' })}
 `
 const ImageContainer = styled.div`
   /* width: 50%; */
@@ -26,6 +29,8 @@ const Image = styled.img`
 const InfoContainer = styled.div`
   width: 50%;
   padding: 50px;
+  ${mobile({ width: '100%', padding: '20px', textAlign: 'justify' })}
+  ${tablet({ width: '100%', padding: '20px', textAlign: 'justify' })}
 `
 const Title = styled.h1`
   margin: 0;
@@ -69,6 +74,8 @@ const AddContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 50%;
+  ${mobile({ width: '100%' })}
+  ${tablet({ width: '100%' })}
 `
 const AmountContainer = styled.div`
   display: flex;
