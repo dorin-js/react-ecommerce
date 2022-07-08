@@ -29,11 +29,6 @@ export default function Categories() {
           <CategoryItem item={item} key={item.id} />
         ))}
       </Container>
-      {/* <Container>
-        {categories2.map((item) => (
-          <CategoryItem item={item} key={item.id} />
-        ))}
-      </Container> */}
     </>
   )
 }

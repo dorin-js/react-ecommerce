@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+
 import Categories from '../components/Categories'
 import Slider from '../components/Slider'
-import PopularProducts from '../components/PopularProducts'
+import Products from '../components/Products'
 import Newsletter from '../components/Newsletter'
 import styled from 'styled-components'
 
@@ -15,8 +16,8 @@ export default function Home() {
     <div>
       <Slider />
       <Categories />
-      <H2>POPULAR PRODUCTS</H2>
-      <PopularProducts />
+      <H2>FEATURED PRODUCTS</H2>
+      <Products />
       <Newsletter />
     </div>
   )

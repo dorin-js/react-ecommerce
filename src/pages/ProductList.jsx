@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import styled from 'styled-components'
-import PopularProducts from '../components/PopularProducts'
+import Products from '../components/Products'
 
 const Container = styled.div``
 const Title = styled.h1`
@@ -31,6 +32,8 @@ export const Option = styled.option`
 `
 
 export default function ProductList() {
+  const location = useLocation()
+  const [filters, setFilters] = useState({})
   return (
     <Container>
       <Title>PRODUCTS</Title>
@@ -41,10 +44,11 @@ export default function ProductList() {
             <Option value="Color" disabled>
               Color
             </Option>
-            <Option>White</Option>
-            <Option>Black</Option>
+            <Option>Red</Option>
+            <Option>Green</Option>
             <Option>Blue</Option>
             <Option>Yellow</Option>
+            <Option>Black</Option>
           </Select>
         </Filter>
         <Filter>
@@ -56,7 +60,7 @@ export default function ProductList() {
           </Select>
         </Filter>
       </FilterContainer>
-      <PopularProducts />
+      <Products />
     </Container>
   )
 }

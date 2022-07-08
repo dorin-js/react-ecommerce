@@ -41,29 +41,29 @@ export const categories = [
   {
     id: 1,
     img: 'https://demo.accesspressthemes.com/zigcy/demo-one/wp-content/uploads/sites/2/2018/11/int12.png',
-    title: 'Living',
+    title: 'living',
   },
 
   {
     id: 3,
     img: 'https://demo.accesspressthemes.com/zigcy/demo-one/wp-content/uploads/sites/2/2018/11/ci6.png',
-    title: 'Kitchen',
+    title: 'kitchen',
   },
   {
     id: 5,
     // img: 'https://demo.thepunte.com/punte-pro/ecommerce-furniture/wp-content/uploads/sites/10/2017/03/lamp-5.jpg',
     img: 'https://demo.accesspressthemes.com/zigcy/demo-one/wp-content/uploads/sites/2/2018/11/smt6.png',
-    title: 'Craft',
+    title: 'dinning',
   },
   {
     id: 2,
     img: 'https://demo.accesspressthemes.com/zigcy/demo-one/wp-content/uploads/sites/2/2018/11/1-d.png',
-    title: 'Bedroom',
+    title: 'bedroom',
   },
   {
     id: 4,
     img: 'https://demo.accesspressthemes.com/zigcy/demo-one/wp-content/uploads/sites/2/2018/11/zz.png',
-    title: 'Sofas',
+    title: 'office',
   },
 ]
 export const categories2 = [
@@ -75,7 +75,7 @@ export const categories2 = [
   {
     id: 4,
     img: 'https://demo.accesspressthemes.com/zigcy/demo-one/wp-content/uploads/sites/2/2018/11/zz.png',
-    title: 'Sofas',
+    title: 'Office',
   },
 ]
 

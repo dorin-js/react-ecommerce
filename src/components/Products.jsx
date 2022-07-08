@@ -1,7 +1,9 @@
 import styled from 'styled-components'
-import { popularProducts } from '../data'
-import Product from './Product'
+import { useEffect } from 'react'
+import axios from 'axios'
+
 import { mobile, tablet } from '../responsive'
+import { popularProducts } from '../data'
 
 const Container = styled.div`
   display: grid;
@@ -15,13 +17,23 @@ const Container = styled.div`
   ${tablet({ gridTemplateColumns: '1fr 1fr' })}
 `
 
-export default function PopularProducts() {
+const baseUrl = 'https://course-api.com/react-store-products'
+
+export default function Products() {
+  const getProducts = async (url) => {
+    const response = await axios.get(url)
+    console.log(response.data)
+  }
+  useEffect(() => {
+    getProducts(baseUrl)
+  }, [])
+
   return (
     <div>
       <Container>
-        {popularProducts.map((product) => (
-          <Product product={product} key={product.id} />
-        ))}
+        {/* {products.map((product) => (
+          <Product />
+        ))} */}
       </Container>
     </div>
   )
