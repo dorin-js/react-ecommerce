@@ -55,10 +55,15 @@ const Icon = styled.div`
     /* transform: scale(1.1); */
   }
 `
+const ProductTitle = styled.h2`
+  margin: 10px 0 20px;
+  text-transform: uppercase;
+`
+
 export default function Product({ product }) {
   return (
     <Container>
-      <Image src={product.img} loading="lazy" />
+      <Image src={product.image} loading="lazy" />
       <Info>
         <Icon>
           <ShoppingCartOutlined style={{ fontSize: '28px' }} />
@@ -72,6 +77,7 @@ export default function Product({ product }) {
           <FavoriteBorderIcon style={{ fontSize: '28px' }} />
         </Icon>
       </Info>
+      <ProductTitle>{product.name}</ProductTitle>
     </Container>
   )
 }
