@@ -58,8 +58,12 @@ export default function Products({ featured, cat, filters, sort }) {
     window.localStorage.getItem('storage_products')
   )
 
-  const filteredProducts = productsInLocalStorage.filter((pr) =>
-    filters.category !== 'all' ? pr.category === filters.category : pr
+  const filteredProducts = productsInLocalStorage.filter(
+    (pr) =>
+      (filters.category !== 'all' ? pr.category === filters.category : pr) &&
+      (filters.color !== 'all'
+        ? (pr.colors[0] || pr.colors[1] || pr.colors[2]) === filters.color
+        : pr)
   )
   console.log(filters.category)
   console.log('filtered', filteredProducts)

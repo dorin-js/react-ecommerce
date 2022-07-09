@@ -32,7 +32,7 @@ export const Option = styled.option`
 
 export default function ProductList() {
   const location = useLocation()
-  const [filters, setFilters] = useState({ category: 'all' })
+  const [filters, setFilters] = useState({ category: 'all', color: 'all' })
   const [sort, setSort] = useState('asc')
   const handleFilters = (e) => {
     setFilters({
@@ -53,11 +53,12 @@ export default function ProductList() {
             <Option value="Color" disabled>
               Color
             </Option>
-            <Option>Red</Option>
-            <Option>Green</Option>
-            <Option>Blue</Option>
-            <Option>Yellow</Option>
-            <Option>Black</Option>
+            <Option>All</Option>
+            <Option value="#0000ff">Blue</Option>
+            <Option value="#ffb900">Yellow</Option>
+            <Option value="#ff0000">Red</Option>
+            <Option value="#00ff00">Green</Option>
+            <Option value="#000">Black</Option>
           </Select>
         </Filter>
         <Filter>
