@@ -4,6 +4,7 @@ import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined'
 import ChevronLeftOutlinedIcon from '@mui/icons-material/ChevronLeftOutlined'
 import { sliderItems } from '../data'
 import { mobile, tablet } from '../responsive'
+import { Link } from 'react-router-dom'
 
 const Container = styled.div`
   width: 100%;
@@ -124,7 +125,9 @@ export default function Slider() {
                   <br />
                   {slider.desc2}
                 </Desc>
-                <Button>SHOP NOW</Button>
+                <Link to="/products">
+                  <Button>SHOP NOW</Button>
+                </Link>
               </InfoContainer>
             </ImgContainer>
           </Slide>

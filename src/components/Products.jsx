@@ -60,12 +60,12 @@ export default function Products({ featured, cat, filters, sort }) {
 
   const filteredProducts = productsInLocalStorage.filter(
     (pr) =>
+      filters &&
       (filters.category !== 'all' ? pr.category === filters.category : pr) &&
       (filters.color !== 'all'
         ? (pr.colors[0] || pr.colors[1] || pr.colors[2]) === filters.color
         : pr)
   )
-  console.log(filters.category)
   console.log('filtered', filteredProducts)
   return (
     <div>

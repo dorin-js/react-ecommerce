@@ -85,7 +85,7 @@ export default function Product({ product }) {
         <Icon>
           <ShoppingCartOutlined style={{ fontSize: '28px' }} />
         </Icon>
-        <Link to="product" className="r-link">
+        <Link to={`/product/${product.id}`} className="r-link">
           <Icon>
             <ZoomInIcon style={{ fontSize: '28px' }} />
           </Icon>

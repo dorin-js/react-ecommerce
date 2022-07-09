@@ -69,7 +69,7 @@ export default function Newsletter() {
       <Title>Newletter</Title>
       <Desc>Get timely updates from your favorite products.</Desc>
       <InputContainer>
-        <Input placeholder="Your Email" />
+        <Input placeholder="Your Email" aria-label="email" />
         <Button>
           <SendIcon />
         </Button>
