@@ -133,9 +133,15 @@ const Navbar = () => {
             </Link>
           </Center>
           <Right>
-            <MenuItem>SHOP</MenuItem>
-            <MenuItem>REGISTER</MenuItem>
-            <MenuItem>SIGN IN</MenuItem>
+            <MenuItem>
+              <Link to="/products">SHOP</Link>
+            </MenuItem>
+            <MenuItem>
+              <Link to="register">REGISTER</Link>
+            </MenuItem>
+            <MenuItem>
+              <Link to="login">SIGN IN</Link>
+            </MenuItem>
             <MenuItem>
               <Badge badgeContent={4} color="primary">
                 <ShoppingCartOutlined

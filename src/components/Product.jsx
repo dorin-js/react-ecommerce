@@ -1,5 +1,4 @@
 import React from 'react'
-import { Image } from './CategoryItem'
 import styled from 'styled-components'
 import { ShoppingCartOutlined } from '@mui/icons-material'
 import ZoomInIcon from '@mui/icons-material/ZoomIn'
@@ -10,10 +9,19 @@ import { mobile, tablet } from '../responsive'
 const Container = styled.div`
   position: relative;
 `
+const Image = styled.img`
+  max-width: 500px;
+  max-height: 500px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`
 export const Info = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
+  max-width: 500px;
+  max-height: 500px;
   top: 0;
   left: 0;
   display: flex;
@@ -52,12 +60,21 @@ const Icon = styled.div`
     cursor: pointer;
     background: #ffffff;
     color: teal;
-    /* transform: scale(1.1); */
   }
 `
 const ProductTitle = styled.h2`
-  margin: 10px 0 20px;
   text-transform: uppercase;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+`
+const Price = styled.span`
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+`
+const FlexBetween = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `
 
 export default function Product({ product }) {
@@ -77,7 +94,10 @@ export default function Product({ product }) {
           <FavoriteBorderIcon style={{ fontSize: '28px' }} />
         </Icon>
       </Info>
-      <ProductTitle>{product.name}</ProductTitle>
+      <FlexBetween>
+        <ProductTitle>{product.name}</ProductTitle>
+        <Price>{product.price}</Price>
+      </FlexBetween>
     </Container>
   )
 }

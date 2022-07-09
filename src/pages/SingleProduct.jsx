@@ -23,9 +23,6 @@ const ImageContainer = styled.div`
   justify-content: center;
   padding: 50px;
 `
-const Image = styled.img`
-  width: 50%;
-`
 const InfoContainer = styled.div`
   width: 50%;
   padding: 50px;
@@ -109,13 +106,13 @@ export default function SingleProduct() {
             <SplideSlide>
               <img
                 src="https://demo.thepunte.com/punte-pro/ecommerce-furniture/wp-content/uploads/sites/10/2017/03/lamp-5.jpg"
-                alt="Image 1"
+                alt="1"
               />
             </SplideSlide>
             <SplideSlide>
               <img
                 src="https://demo.thepunte.com/punte-pro/ecommerce-furniture/wp-content/uploads/sites/10/2017/03/lamp-51.jpg"
-                alt="Image 2"
+                alt=" 2"
               />
             </SplideSlide>
           </Splide>

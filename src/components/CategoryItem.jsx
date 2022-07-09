@@ -11,7 +11,7 @@ const Container = styled.div`
     grid-column: span ${(props) => (props.arrLength === 5 || 8 ? 3 : 2)};
   }
 `
-export const Image = styled.img`
+const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -55,13 +55,13 @@ const Button = styled.button`
 export default function CategoryItem({ item, catLength }) {
   return (
     <Container arrLength={catLength}>
-      <Link to={`/products/${item.title}`}>
-        <Image src={item.img} />
-        <Info>
-          <Title>{item.title}</Title>
+      <Image src={item.img} />
+      <Info>
+        <Title>{item.title}</Title>
+        <Link to={`/products/${item.title}`}>
           <Button>SHOP NOW</Button>
-        </Info>
-      </Link>
+        </Link>
+      </Info>
     </Container>
   )
 }

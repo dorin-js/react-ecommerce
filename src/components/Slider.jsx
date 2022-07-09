@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined'
 import ChevronLeftOutlinedIcon from '@mui/icons-material/ChevronLeftOutlined'
@@ -99,7 +99,6 @@ export const Button = styled.button`
 
 export default function Slider() {
   const [slideIndex, setSlideIndex] = useState(0)
-  // useEffect(() => console.log(slideIndex), [slideIndex])
 
   const swSlide = (dir) => {
     if (dir === 'left') {

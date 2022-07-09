@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+// import { useDispatch, useSelector } from 'react-redux'
 
 import Categories from '../components/Categories'
 import Slider from '../components/Slider'
@@ -12,12 +13,15 @@ export const H2 = styled.h2`
 `
 
 export default function Home() {
+  // const products = useSelector((state) => state.Products.productsData)
+  // console.log('home:', products)
+  // const featured = products.fileter
   return (
     <div>
       <Slider />
       <Categories />
       <H2>FEATURED PRODUCTS</H2>
-      <Products />
+      <Products featured="true" />
       <Newsletter />
     </div>
   )

@@ -12,7 +12,6 @@ const Filter = styled.div`
 `
 const FilterContainer = styled.div`
   display: flex;
-  justify-content: space-between;
 `
 const FilterText = styled.span`
   font-size: 20px;
@@ -33,14 +32,24 @@ export const Option = styled.option`
 
 export default function ProductList() {
   const location = useLocation()
-  const [filters, setFilters] = useState({})
+  const [filters, setFilters] = useState({ category: 'all' })
+  const [sort, setSort] = useState('asc')
+  const handleFilters = (e) => {
+    setFilters({
+      ...filters,
+      [e.target.name]: e.target.value.toLowerCase(),
+    })
+  }
+  const handleSort = (e) => {
+    setSort(e.target.value)
+  }
   return (
     <Container>
       <Title>PRODUCTS</Title>
       <FilterContainer>
         <Filter>
           <FilterText>Filter Products:</FilterText>
-          <Select defaultValue={'Color'}>
+          <Select defaultValue={'Color'} name="color" onChange={handleFilters}>
             <Option value="Color" disabled>
               Color
             </Option>
@@ -52,15 +61,31 @@ export default function ProductList() {
           </Select>
         </Filter>
         <Filter>
+          <Select defaultValue={'All'} name="category" onChange={handleFilters}>
+            <Option value="Category" disabled>
+              Category
+            </Option>
+            <Option>All</Option>
+            <Option>Bedroom</Option>
+            <Option>Dining</Option>
+            <Option>Living room</Option>
+            <Option>Office</Option>
+            <Option>Kitchen</Option>
+          </Select>
+        </Filter>
+        <Filter>
           <FilterText>Sort Products:</FilterText>
-          <Select defaultValue={'Newest'}>
-            <Option value="Newest">Newest</Option>
-            <Option>Price (asc)</Option>
-            <Option>Price (desc)</Option>
+          <Select defaultValue={'asc'} name="sort" onChange={handleSort}>
+            <Option value="asc">Price (asc)</Option>
+            <Option value="desc">Price (desc)</Option>
           </Select>
         </Filter>
       </FilterContainer>
-      <Products />
+      <Products
+        cat={location.pathname.split('/')[2]}
+        filters={filters}
+        sort={sort}
+      />
     </Container>
   )
 }
