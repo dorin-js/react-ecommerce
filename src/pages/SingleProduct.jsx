@@ -116,8 +116,11 @@ export default function SingleProduct() {
     dispatch(
       addInCart({ ...product, quantity, color, price: product.price / 100 })
     )
-    console.log({ totalPrice: product.price * quantity })
   }
+  // const cart = useSelector((state) => state.Products)
+  // useEffect(() => {
+  //   localStorage.setItem('localCart', JSON.stringify(cart))
+  // }, [cart])
 
   return (
     <Container>
@@ -150,10 +153,12 @@ export default function SingleProduct() {
           <AddContainer>
             <AmountContainer>
               <RemoveIcon
+                className="hover-pointer"
                 onClick={() => quantity > 1 && setQuantity(quantity - 1)}
               />
               <Amount>{quantity}</Amount>
               <AddIcon
+                className="hover-pointer"
                 onClick={() => quantity < 30 && setQuantity(quantity + 1)}
               />
             </AmountContainer>

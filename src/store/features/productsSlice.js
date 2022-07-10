@@ -30,6 +30,11 @@ export const productsSlice = createSlice({
   },
 })
 
-export const { setLoadingFalse, setLoadingTrue, setProducts, addInCart } =
-  productsSlice.actions
+export const {
+  setLoadingFalse,
+  setLoadingTrue,
+  setProducts,
+  addInCart,
+  setProductQuantity,
+} = productsSlice.actions
 export default productsSlice.reducer

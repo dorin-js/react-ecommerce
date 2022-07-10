@@ -82,9 +82,9 @@ export default function Product({ product }) {
     <Container>
       <Image src={product.image} loading="lazy" />
       <Info>
-        <Icon>
+        {/* <Icon>
           <ShoppingCartOutlined style={{ fontSize: '28px' }} />
-        </Icon>
+        </Icon> */}
         <Link to={`/product/${product.id}`} className="r-link">
           <Icon>
             <ZoomInIcon style={{ fontSize: '28px' }} />

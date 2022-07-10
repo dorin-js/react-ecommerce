@@ -3,10 +3,12 @@ import RemoveIcon from '@mui/icons-material/Remove'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { mobile, tablet } from '../responsive'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { setProductQuantity } from '../store/features/productsSlice'
 
 const Container = styled.div`
   max-width: 1500px;
+  min-height: 600px;
   margin: 0 auto;
 `
 
@@ -161,6 +163,7 @@ const Button = styled.button`
 
 const Cart = () => {
   const cart = useSelector((state) => state.Products)
+  const dispatch = useDispatch()
   return (
     <Container>
       <Wrapper>
@@ -199,7 +202,7 @@ const Cart = () => {
                       <RemoveIcon />
                     </ProductAmountContainer>
                     <ProductPrice>
-                      {product.price * product.quantity}
+                      {(product.price * product.quantity).toPrecision(6)}
                     </ProductPrice>
                   </PriceDetail>
                 </Product>
@@ -211,7 +214,9 @@ const Cart = () => {
             <SummaryTitle>ORDER SUMMARY</SummaryTitle>
             <SummaryItem>
               <SummaryItemText>Subtotal</SummaryItemText>
-              <SummaryItemPrice>$ 80</SummaryItemPrice>
+              <SummaryItemPrice>
+                $ {cart.cartTotalPrice.toPrecision(6)}
+              </SummaryItemPrice>
             </SummaryItem>
             <SummaryItem>
               <SummaryItemText>Estimated Shipping</SummaryItemText>
@@ -223,7 +228,9 @@ const Cart = () => {
             </SummaryItem>
             <SummaryItem type="total">
               <SummaryItemText>Total</SummaryItemText>
-              <SummaryItemPrice>$ 80</SummaryItemPrice>
+              <SummaryItemPrice>
+                $ {cart.cartTotalPrice.toPrecision(6)}
+              </SummaryItemPrice>
             </SummaryItem>
             <Button>CHECKOUT NOW</Button>
           </Summary>

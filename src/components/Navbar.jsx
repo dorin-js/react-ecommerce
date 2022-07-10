@@ -105,6 +105,8 @@ const Option = styled.option`
 `
 
 const Navbar = () => {
+  // const [cart, setCart] =
+  const cart = JSON.parse(localStorage.getItem('localCart'))
   const cartQuantity = useSelector((state) => state.Products.cartQuantity)
   return (
     <Nav>
@@ -146,7 +148,10 @@ const Navbar = () => {
             </MenuItem>
             <Link to="/cart">
               <MenuItem>
-                <Badge badgeContent={cartQuantity} color="primary">
+                <Badge
+                  badgeContent={cartQuantity || cart.cartQuantity}
+                  color="primary"
+                >
                   <ShoppingCartOutlined
                     className="cart hover"
                     style={{ cursor: 'pointer' }}

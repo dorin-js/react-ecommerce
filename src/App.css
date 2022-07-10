@@ -33,3 +33,6 @@
 .r-link:hover {
   color: teal;
 }
+.hover-pointer {
+  cursor: pointer;
+}
