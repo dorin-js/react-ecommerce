@@ -96,7 +96,7 @@ export default function Product({ product }) {
       </Info>
       <FlexBetween>
         <ProductTitle>{product.name}</ProductTitle>
-        <Price>{product.price}</Price>
+        <Price>{product.price / 100}</Price>
       </FlexBetween>
     </Container>
   )

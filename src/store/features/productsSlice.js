@@ -4,6 +4,9 @@ const initialState = {
   loadingProducts: false,
   productsData: [],
   productsErrors: null,
+  productsInCart: [],
+  cartQuantity: 0,
+  cartTotalPrice: 0,
 }
 
 export const productsSlice = createSlice({
@@ -19,9 +22,14 @@ export const productsSlice = createSlice({
     setProducts: (state, action) => {
       state.productsData = action.payload
     },
+    addInCart: (state, action) => {
+      state.cartQuantity += action.payload.quantity
+      state.productsInCart.push(action.payload)
+      state.cartTotalPrice += action.payload.price * action.payload.quantity
+    },
   },
 })
 
-export const { setLoadingFalse, setLoadingTrue, setProducts } =
+export const { setLoadingFalse, setLoadingTrue, setProducts, addInCart } =
   productsSlice.actions
 export default productsSlice.reducer

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { ShoppingCartOutlined } from '@mui/icons-material'
 import Badge from '@mui/material/Badge'
 import styled from 'styled-components'
@@ -104,6 +105,7 @@ const Option = styled.option`
 `
 
 const Navbar = () => {
+  const cartQuantity = useSelector((state) => state.Products.cartQuantity)
   return (
     <Nav>
       <Container>
@@ -116,7 +118,7 @@ const Navbar = () => {
               </Select>
             </Language>
             <InputContainer>
-              <Input placeholder="Search" />
+              <Input placeholder="Search" aria-label="search" />
               <SearchIcon
                 style={{
                   cursor: 'pointer',
@@ -142,14 +144,16 @@ const Navbar = () => {
             <MenuItem>
               <Link to="login">SIGN IN</Link>
             </MenuItem>
-            <MenuItem>
-              <Badge badgeContent={4} color="primary">
-                <ShoppingCartOutlined
-                  className="cart hover"
-                  style={{ cursor: 'pointer' }}
-                />
-              </Badge>
-            </MenuItem>
+            <Link to="/cart">
+              <MenuItem>
+                <Badge badgeContent={cartQuantity} color="primary">
+                  <ShoppingCartOutlined
+                    className="cart hover"
+                    style={{ cursor: 'pointer' }}
+                  />
+                </Badge>
+              </MenuItem>
+            </Link>
           </Right>
         </Wrapper>
       </Container>

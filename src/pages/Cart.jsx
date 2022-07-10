@@ -1,9 +1,14 @@
 import AddIcon from '@mui/icons-material/Add'
 import RemoveIcon from '@mui/icons-material/Remove'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { mobile, tablet } from '../responsive'
+import { useSelector } from 'react-redux'
 
-const Container = styled.div``
+const Container = styled.div`
+  max-width: 1500px;
+  margin: 0 auto;
+`
 
 const Wrapper = styled.div`
   padding: 20px;
@@ -86,8 +91,6 @@ const ProductColor = styled.div`
   background-color: ${(props) => props.color};
 `
 
-const ProductSize = styled.span``
-
 const PriceDetail = styled.div`
   flex: 1;
   display: flex;
@@ -157,71 +160,52 @@ const Button = styled.button`
 `
 
 const Cart = () => {
+  const cart = useSelector((state) => state.Products)
   return (
     <Container>
       <Wrapper>
         <Title>YOUR BAG</Title>
         <Top>
-          <TopButton>CONTINUE SHOPPING</TopButton>
+          <Link to="/products">
+            <TopButton>CONTINUE SHOPPING</TopButton>
+          </Link>
           <TopTexts>
-            <TopText>Shopping Bag(2)</TopText>
+            <TopText>Shopping Bag({cart.cartQuantity})</TopText>
             <TopText>Your Wishlist (0)</TopText>
           </TopTexts>
           <TopButton type="filled">CHECKOUT NOW</TopButton>
         </Top>
         <Bottom>
           <Info>
-            <Product>
-              <ProductDetail>
-                <Image src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1614188818-TD1MTHU_SHOE_ANGLE_GLOBAL_MENS_TREE_DASHERS_THUNDER_b01b1013-cd8d-48e7-bed9-52db26515dc4.png?crop=1xw:1.00xh;center,top&resize=480%3A%2A" />
-                <Details>
-                  <ProductName>
-                    <b>Product:</b> JESSIE THUNDER SHOES
-                  </ProductName>
-                  <ProductId>
-                    <b>ID:</b> 93813718293
-                  </ProductId>
-                  <ProductColor color="black" />
-                  <ProductSize>
-                    <b>Size:</b> 37.5
-                  </ProductSize>
-                </Details>
-              </ProductDetail>
-              <PriceDetail>
-                <ProductAmountContainer>
-                  <AddIcon />
-                  <ProductAmount>2</ProductAmount>
-                  <RemoveIcon />
-                </ProductAmountContainer>
-                <ProductPrice>$ 30</ProductPrice>
-              </PriceDetail>
-            </Product>
-            <Hr />
-            <Product>
-              <ProductDetail>
-                <Image src="https://i.pinimg.com/originals/2d/af/f8/2daff8e0823e51dd752704a47d5b795c.png" />
-                <Details>
-                  <ProductName>
-                    <b>Product:</b> HAKURA T-SHIRT
-                  </ProductName>
-                  <ProductId>
-                    <b>ID:</b> 93813718293
-                  </ProductId>
-                  <ProductColor color="gray" />
-                  <ProductSize>
-                    <b>Size:</b> M
-                  </ProductSize>
-                </Details>
-              </ProductDetail>
-              <PriceDetail>
-                <ProductAmountContainer>
-                  <AddIcon />
-                  <ProductAmount>1</ProductAmount>
-                  <RemoveIcon />
-                </ProductAmountContainer>
-                <ProductPrice>$ 20</ProductPrice>
-              </PriceDetail>
-            </Product>
+            {cart.productsInCart.map((product) => (
+              <>
+                <Product key={product.id}>
+                  <ProductDetail>
+                    <Image src={product.image} />
+                    <Details>
+                      <ProductName>
+                        <b>Product:</b> {product.name}
+                      </ProductName>
+                      <ProductId>
+                        <b>ID:</b> {product.id}
+                      </ProductId>
+                      <ProductColor color={product.color} />
+                    </Details>
+                  </ProductDetail>
+                  <PriceDetail>
+                    <ProductAmountContainer>
+                      <AddIcon />
+                      <ProductAmount>{product.quantity}</ProductAmount>
+                      <RemoveIcon />
+                    </ProductAmountContainer>
+                    <ProductPrice>
+                      {product.price * product.quantity}
+                    </ProductPrice>
+                  </PriceDetail>
+                </Product>
+                <Hr />
+              </>
+            ))}
           </Info>
           <Summary>
             <SummaryTitle>ORDER SUMMARY</SummaryTitle>

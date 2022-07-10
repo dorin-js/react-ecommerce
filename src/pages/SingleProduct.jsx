@@ -7,6 +7,8 @@ import AddIcon from '@mui/icons-material/Add'
 import RemoveIcon from '@mui/icons-material/Remove'
 import { mobile, tablet } from '../responsive'
 import { useLocation } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { addInCart } from '../store/features/productsSlice'
 
 const Container = styled.div`
   display: flex;
@@ -101,48 +103,61 @@ const TealButton = styled(Button)`
 export default function SingleProduct() {
   const location = useLocation()
   const id = location.pathname.split('/')[2]
+  const dispatch = useDispatch()
   const productsInLocalStorage = JSON.parse(
     window.localStorage.getItem('storage_products')
   )
   const found = productsInLocalStorage.find((element) => element.id === id)
   const [product] = useState(found)
-  console.log('single P ', product)
+  const [quantity, setQuantity] = useState(1)
+  const [color, setColor] = useState(product.colors[0])
+  console.log(color)
+  const handleAddToCart = () => {
+    dispatch(
+      addInCart({ ...product, quantity, color, price: product.price / 100 })
+    )
+    console.log({ totalPrice: product.price * quantity })
+  }
+
   return (
     <Container>
       <Wrapper>
         <ImageContainer>
           <Splide aria-label="My Favorite Images">
             <SplideSlide>
-              <img src={product.image} alt="1" />
+              <img src={product.image} alt="product" />
             </SplideSlide>
-            {/* <SplideSlide>
-              <img
-                src="https://demo.thepunte.com/punte-pro/ecommerce-furniture/wp-content/uploads/sites/10/2017/03/lamp-51.jpg"
-                alt=" 2"
-              />
-            </SplideSlide> */}
           </Splide>
-          {/* <Image src="https://demo.thepunte.com/punte-pro/ecommerce-furniture/wp-content/uploads/sites/10/2017/03/lamp-5.jpg" /> */}
         </ImageContainer>
         <InfoContainer>
           <Title>{product.name.toUpperCase()}</Title>
           <Desc>{product.description} </Desc>
-          <Price>$ {product.price}</Price>
+          <Price>$ {product.price / 100}</Price>
           <FilterContainer>
             <Filter>
               <FilterTitle>Color</FilterTitle>
-              {product.colors.map((color) => (
-                <FilterColor key={color} color={color} />
+              {product.colors.map((col) => (
+                <FilterColor
+                  key={col}
+                  color={col}
+                  onClick={() => {
+                    setColor(col)
+                  }}
+                />
               ))}
             </Filter>
           </FilterContainer>
           <AddContainer>
             <AmountContainer>
-              <RemoveIcon />
-              <Amount>1</Amount>
-              <AddIcon />
+              <RemoveIcon
+                onClick={() => quantity > 1 && setQuantity(quantity - 1)}
+              />
+              <Amount>{quantity}</Amount>
+              <AddIcon
+                onClick={() => quantity < 30 && setQuantity(quantity + 1)}
+              />
             </AmountContainer>
-            <TealButton>ADD TO CART</TealButton>
+            <TealButton onClick={handleAddToCart}>ADD TO CART</TealButton>
           </AddContainer>
         </InfoContainer>
       </Wrapper>
