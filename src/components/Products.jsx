@@ -58,7 +58,7 @@ export default function Products({ featured, cat, filters, sort }) {
     window.localStorage.getItem('storage_products')
   )
 
-  const filteredProducts = productsInLocalStorage.filter(
+  const filteredProducts = productsData.filter(
     (pr) =>
       filters &&
       (filters.category !== 'all' ? pr.category === filters.category : pr) &&
@@ -66,7 +66,7 @@ export default function Products({ featured, cat, filters, sort }) {
         ? (pr.colors[0] || pr.colors[1] || pr.colors[2]) === filters.color
         : pr)
   )
-  console.log('filtered', filteredProducts)
+
   return (
     <div>
       <Container>
